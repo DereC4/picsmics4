@@ -1,3 +1,3 @@
 # picsmics4
 
-Showing a wholesome moment on the internet.
+Memorializing the legendary comment thread on DrazenXLive's *Reptilia* The Strokes, Rock Band video.
