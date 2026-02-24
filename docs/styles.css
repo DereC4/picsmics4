@@ -176,3 +176,156 @@ li[style*="--nested: true"] {
     background: #ffe7e7;
     color: #c41e3a;
 }
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background: #0d0d0d;
+  border-bottom: 1px solid #222;
+}
+
+.nav-logo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.nav-link {
+  color: #888;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #fff;
+}
+
+/* Layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #111;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #222;
+}
+
+.hero h1 {
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.hero .subtitle {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.hero .subtitle a {
+  color: #6ea8fe;
+  text-decoration: none;
+}
+
+.hero .meta {
+  color: #555;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+/* Comments */
+#comments-list {
+  list-style: none;
+}
+
+#comments-list li {
+  padding: 1rem 0;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+#comments-list .comment-author {
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+#comments-list .comment-date {
+  color: #555;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+#comments-list .comment-text {
+  margin-top: 0.3rem;
+  color: #ccc;
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+}
+
+#comments-list .comment-likes {
+  color: #555;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+/* About */
+.about-content {
+  line-height: 1.8;
+}
+
+.about-content h2 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 2rem 0 0.75rem;
+}
+
+.about-content p {
+  margin-bottom: 1rem;
+  color: #bbb;
+}
+
+.about-content a {
+  color: #6ea8fe;
+  text-decoration: none;
+}
+
+.about-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-content ul li {
+  margin-bottom: 0.5rem;
+}
