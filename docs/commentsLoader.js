@@ -2,12 +2,17 @@ async function loadComments() {
   try {
     const response = await fetch("comments.json");
     const allComments = await response.json();
+    const CUTOFF_ID = "UgywI-n-fC13yEtXzud4AaABAg";
+    const cutoffIndex = allComments.findIndex(c => c.id === CUTOFF_ID);
+    const newComments = cutoffIndex !== -1 ? allComments.slice(cutoffIndex) : [];
 
-    renderComments(allComments);
+    renderComments(newComments);
   } catch (error) {
     console.error("Error loading comments:", error);
-    document.getElementById("comments-list").innerHTML =
-      '<li style="color: red; padding: 1rem;">Error loading comments. Please check if comments.json exists.</li>';
+    document.getElementById("comments-list").insertAdjacentHTML(
+      "beforeend",
+      '<li style="color: red; padding: 1rem;">Error loading comments. Please check if comments.json exists.</li>'
+    );
   }
 }
 
@@ -95,7 +100,7 @@ function createCommentHTML(comment) {
  */
 function renderComments(comments) {
   const commentsList = document.getElementById("comments-list");
-  commentsList.innerHTML = "";
+  // commentsList.innerHTML = "";
 
   comments.forEach((comment) => {
     const li = document.createElement("li");
@@ -103,5 +108,6 @@ function renderComments(comments) {
     commentsList.appendChild(li);
   });
 }
+
 
 document.addEventListener("DOMContentLoaded", loadComments);
