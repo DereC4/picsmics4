@@ -76,7 +76,8 @@ function createCommentHTML(comment) {
                 </div>
                 <div class="comment__meta">
                     <span class="comment__likes">👍 ${formatLikes(comment.like_count)}</span>
-                    <span class="comment__time">${formatDate(comment.timestamp)}</span>
+                    <span class="comment__time">${comment._time_text || "Unknown"}</span>
+
                 </div>
             </div>
         </div>
