@@ -1,0 +1,11 @@
+name: Derek says hello
+
+on:
+  workflow_dispatch:
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say hi
+        run: echo "hi"
