@@ -26,6 +26,15 @@ function formatLikes(count) {
   return count.toString();
 }
 
+function formatDate(timestamp) {
+  const date = new Date(timestamp * 1000);
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
 function createCommentHTML(comment) {
   const badges = [];
 
@@ -54,7 +63,7 @@ function createCommentHTML(comment) {
                 </div>
                 <div class="comment__meta">
                     <span class="comment__likes">👍 ${formatLikes(comment.like_count)}</span>
-                    <span class="comment__time">${comment._time_text}</span>
+                    <span class="comment__time">${formatDate(comment.timestamp)}</span>
                 </div>
             </div>
         </div>
