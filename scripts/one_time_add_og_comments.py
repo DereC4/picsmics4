@@ -9,7 +9,20 @@ original_path = os.path.join(script_dir, "..", "docs", "comments_ORIGINAL.json")
 index_path = os.path.join(script_dir, "..", "docs", "index.html")
 
 with open(original_path, "r", encoding="utf-8") as f:
-    comments = json.load(f)
+    all_comments = json.load(f)
+
+# Cutoff: hardcode only comments BEFORE "picsmics4 is one of the greatest examples..."
+CUTOFF_ID = "UgywI-n-fC13yEtXzud4AaABAg"
+cutoff_index = next(
+    (i for i, c in enumerate(all_comments) if c.get("id") == CUTOFF_ID),
+    None
+)
+if cutoff_index is None:
+    print("ERROR: Cutoff comment not found in comments_ORIGINAL.json. Aborting.")
+    exit(1)
+
+comments = all_comments[:cutoff_index]
+print(f"Cutoff found at index {cutoff_index}. Using {len(comments)} comments.")
 
 def format_likes(count):
     if count >= 1_000_000:
