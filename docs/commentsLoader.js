@@ -13,8 +13,8 @@ async function loadComments() {
 
 /**
  * Likes get formatted, every 1000 likes is a K, every 1,000,000 is a M
- * @param {*} count 
- * @returns 
+ * @param {*} count
+ * @returns
  */
 function formatLikes(count) {
   if (count >= 1000) {
@@ -35,6 +35,19 @@ function formatDate(timestamp) {
   });
 }
 
+function formatTooltipDate(timestamp) {
+  const date = new Date(timestamp * 1000);
+  return date.toLocaleString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+}
+
 function createCommentHTML(comment) {
   const badges = [];
 
@@ -42,9 +55,9 @@ function createCommentHTML(comment) {
     badges.push('<span class="stat-badge pinned-badge">📌 Pinned</span>');
   }
 
-//   if (comment.is_favorited) {
-//     badges.push('<span class="stat-badge favorited-badge">❤️ Favorited</span>');
-//   }
+  //   if (comment.is_favorited) {
+  //     badges.push('<span class="stat-badge favorited-badge">❤️ Favorited</span>');
+  //   }
 
   return `
         <div class="comment">
@@ -77,7 +90,7 @@ function createCommentHTML(comment) {
 
 /**
  * Render the comments into the HTML
- * @param {} comments 
+ * @param {} comments
  */
 function renderComments(comments) {
   const commentsList = document.getElementById("comments-list");
